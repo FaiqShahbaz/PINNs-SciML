@@ -78,23 +78,23 @@ Quantitative metrics:
 
 ### Visualizations
 
-PINN solution:
-![](outputs/figs/pinn_heatmap.png)
+PINN solution:  
+<img src="outputs/figs/pinn_heatmap.png" width="700">
 
-Finite Difference reference:
-![](outputs/figs/fd_heatmap.png)
+Finite Difference reference:  
+<img src="outputs/figs/fd_heatmap.png" width="700">
 
-Absolute error |PINN − FD|:
-![](outputs/figs/abs_error.png)
+Absolute error |PINN − FD|:  
+<img src="outputs/figs/abs_error.png" width="700">
 
-Line cuts comparison:
-![](outputs/figs/linecuts.png)
+Line cuts comparison:  
+<img src="outputs/figs/linecuts.png" width="700">
 
-Residual magnitude histogram:
-![](outputs/figs/residual_hist.png)
+Residual magnitude histogram:  
+<img src="outputs/figs/residual_hist.png" width="700">
 
-Energy decay:
-![](outputs/figs/energy_vs_time.png)
+Energy decay:  
+<img src="outputs/figs/energy_vs_time.png" width="700">
 
 ---
 
