@@ -78,23 +78,44 @@ Quantitative metrics:
 
 ### Visualizations
 
-PINN solution:  
-<img src="outputs/figs/pinn_heatmap.png" width="700">
+<table>
+  <tr>
+    <td align="center"><b>PINN Solution</b></td>
+    <td align="center"><b>FD Reference</b></td>
+    <td align="center"><b>|PINN − FD| Error</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="outputs/figs/pinn_heatmap.png" width="320">
+    </td>
+    <td align="center">
+      <img src="outputs/figs/fd_heatmap.png" width="320">
+    </td>
+    <td align="center">
+      <img src="outputs/figs/abs_error.png" width="320">
+    </td>
+  </tr>
+</table>
 
-Finite Difference reference:  
-<img src="outputs/figs/fd_heatmap.png" width="700">
+<p align="center">
+  <b>Line cuts comparison (PINN vs FD)</b><br>
+  <img src="outputs/figs/linecuts.png" width="650">
+</p>
 
-Absolute error |PINN − FD|:  
-<img src="outputs/figs/abs_error.png" width="700">
+<p align="center">
+  <b>Residual magnitude histogram</b><br>
+  <img src="outputs/figs/residual_hist.png" width="520">
+</p>
 
-Line cuts comparison:  
-<img src="outputs/figs/linecuts.png" width="700">
+<p align="center">
+  <b>Energy decay</b><br>
+  <img src="outputs/figs/energy_vs_time.png" width="520">
+</p>
 
-Residual magnitude histogram:  
-<img src="outputs/figs/residual_hist.png" width="700">
-
-Energy decay:  
-<img src="outputs/figs/energy_vs_time.png" width="700">
+<p align="center">
+  <b>IC / BC checks</b><br>
+  <img src="outputs/figs/ic_bc.png" width="520">
+</p>
 
 ---
 
