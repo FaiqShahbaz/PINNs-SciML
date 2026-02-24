@@ -99,7 +99,7 @@ Quantitative metrics:
 
 <p align="center">
   <b>Line cuts comparison (PINN vs FD)</b><br>
-  <img src="outputs/figs/linecuts.png" width="550">
+  <img src="outputs/figs/linecuts.png" width="450">
 </p>
 
 <p align="center">
@@ -139,9 +139,8 @@ Outputs are saved to:
 
 Detailed conceptual explanation is available in:
 
-- docs/PINN_overview.pdf
-- docs/PINN_basics.pdf
-- docs/PINN_CFD.pdf
+- docs/PINN-Basics.pdf
+- docs/PINN-Burgers.pdf
 
 ---
 
