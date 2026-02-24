@@ -99,22 +99,11 @@ Quantitative metrics:
 
 <p align="center">
   <b>Line cuts comparison (PINN vs FD)</b><br>
-  <img src="outputs/figs/linecuts.png" width="650">
+  <img src="outputs/figs/linecuts.png" width="550">
 </p>
 
 <p align="center">
-  <b>Residual magnitude histogram</b><br>
-  <img src="outputs/figs/residual_hist.png" width="520">
-</p>
-
-<p align="center">
-  <b>Energy decay</b><br>
-  <img src="outputs/figs/energy_vs_time.png" width="520">
-</p>
-
-<p align="center">
-  <b>IC / BC checks</b><br>
-  <img src="outputs/figs/ic_bc.png" width="520">
+  <i>Additional diagnostics (residual histogram, energy decay, IC/BC checks) are available in <code>outputs/figs/</code>.</i>
 </p>
 
 ---
