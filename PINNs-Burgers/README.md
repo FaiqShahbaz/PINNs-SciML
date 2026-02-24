@@ -7,46 +7,84 @@ The solution is enforced through automatic differentiation and validated against
 
 ## Problem Definition
 
-We solve the 1D viscous Burgers' equation:
+We consider the 1D viscous Burgers' equation:
 
-u_t + u u_x = ν u_xx  
-x ∈ [-1,1],  t ∈ [0,1]  
-ν = 0.01 / π  
+$$
+u_t + u u_x = \nu u_{xx}, 
+\quad x \in [-1,1], \quad t \in [0,1],
+$$
+
+where the viscosity coefficient is defined as
+
+$$
+\nu = \frac{0.01}{\pi}.
+$$
 
 ### Initial Condition
-u(x,0) = -sin(πx)
+
+$$
+u(x,0) = -\sin(\pi x)
+$$
 
 ### Boundary Conditions
-u(-1,t) = u(1,t) = 0
 
-This implementation follows the continuous-time PINN formulation introduced in [1].
+$$
+u(-1,t) = 0, 
+\qquad
+u(1,t) = 0.
+$$
 
+This implementation follows the continuous-time PINN formulation introduced in [1], where the governing equation is enforced through automatic differentiation of the neural network approximation.
 ---
 
 ## Method Overview
 
-The neural network approximates:
+A fully-connected neural network is used to approximate the solution:
 
-u_θ(x,t) ≈ u(x,t)
+$$
+u_\theta(x,t) \approx u(x,t),
+$$
 
-The physics residual is constructed via automatic differentiation:
+where $\theta$ denotes the trainable parameters of the network.
 
-r = u_t + u u_x - ν u_xx
+### Physics Residual
 
-Training minimizes a weighted combination of:
+Using automatic differentiation, the Burgers’ equation residual is constructed as:
 
-- PDE residual loss
-- Initial condition loss
-- Boundary condition loss
+$$
+r(x,t) = u_t + u u_x - \nu u_{xx}.
+$$
 
-Stabilization techniques used:
+The derivatives $u_t$, $u_x$, and $u_{xx}$ are computed exactly via automatic differentiation of the neural network output.
 
-- Input normalization to [-1,1]
+### Loss Function
+
+Training minimizes a weighted composite loss:
+
+$$
+\mathcal{L} =
+\lambda_f \mathcal{L}_{PDE}
++
+\lambda_{IC} \mathcal{L}_{IC}
++
+\lambda_{BC} \mathcal{L}_{BC},
+$$
+
+where:
+
+- $\mathcal{L}_{PDE} = \| r(x,t) \|_2^2$ enforces the governing equation  
+- $\mathcal{L}_{IC}$ enforces the initial condition  
+- $\mathcal{L}_{BC}$ enforces the boundary conditions  
+
+### Stabilization Techniques
+
+To improve convergence and training stability, the following strategies are employed:
+
+- Input normalization to $[-1,1]$
 - Batched collocation sampling
 - Gradient clipping
 - Two-phase loss weighting
-- Adam optimizer followed by L-BFGS refinement
-
+- Adam optimization followed by L-BFGS refinement
 ---
 
 ## Repository Structure
@@ -59,7 +97,6 @@ outputs/
 docs/                # Project slides (PDF)
 README.md
 requirements.txt
-.gitignore
 ```
 
 ---

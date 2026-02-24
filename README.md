@@ -26,18 +26,38 @@ This repository is designed as an evolving laboratory of PINN-based models, benc
 
 ## What Are Physics-Informed Neural Networks?
 
-Physics-Informed Neural Networks (PINNs) embed governing physical laws directly into the training objective of neural networks.
+Physics-Informed Neural Networks (PINNs) incorporate governing physical laws directly into the training objective of neural networks.
 
-Given a PDE of the general form:
+Consider a nonlinear partial differential equation of the form:
 
-u_t + N[u] = 0
+$$
+u_t + \mathcal{N}[u] = 0,
+$$
 
-a neural network u_θ(x, t) is trained to:
+where $\mathcal{N}[\cdot]$ represents a nonlinear differential operator.
 
-- Satisfy initial and boundary conditions  
-- Minimize the PDE residual computed using automatic differentiation  
+A neural network $u_\theta(x,t)$ is used to approximate the solution $u(x,t)$.  
+The model is trained by minimizing a composite loss function:
 
-This approach enables solving PDEs without traditional mesh-based discretization and integrates physics directly into deep learning models.
+$$
+\mathcal{L} = \mathcal{L}_{IC} + \mathcal{L}_{BC} + \mathcal{L}_{PDE},
+$$
+
+where:
+
+- $\mathcal{L}_{IC}$ enforces initial conditions  
+- $\mathcal{L}_{BC}$ enforces boundary conditions  
+- $\mathcal{L}_{PDE}$ minimizes the physics residual  
+
+The physics residual is defined as:
+
+$$
+r(x,t) = u_t + \mathcal{N}[u].
+$$
+
+Automatic differentiation enables exact computation of derivatives ($u_t$, $u_x$, $u_{xx}$, etc.), allowing the neural network to satisfy the governing equation without traditional mesh-based discretization.
+
+This framework integrates physics directly into deep learning models, forming a core paradigm in Scientific Machine Learning (SciML).
 
 ---
 
