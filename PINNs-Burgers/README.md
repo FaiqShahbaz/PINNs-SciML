@@ -34,7 +34,8 @@ u(-1,t) = 0,
 u(1,t) = 0.
 $$
 
-This implementation follows the continuous-time PINN formulation introduced in [1], where the governing equation is enforced through automatic differentiation of the neural network approximation.
+> This implementation follows the continuous-time PINN formulation introduced in [1], where the governing equation is enforced through automatic differentiation of the neural network approximation.
+
 ---
 
 ## Method Overview
